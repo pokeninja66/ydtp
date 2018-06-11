@@ -18,6 +18,7 @@ import { RegisterComponent } from './pages/user/register/register.component';
 import { UploadComponent } from './pages/user/upload/upload.component';
 
 import {FormsModule} from '@angular/forms';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {FormsModule} from '@angular/forms';
     LoginComponent,
     LogoutComponent,
     RegisterComponent,
-    UploadComponent
+    UploadComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

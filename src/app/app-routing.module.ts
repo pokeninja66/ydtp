@@ -7,9 +7,14 @@ import {LoginComponent} from './pages/user/login/login.component';
 import {LogoutComponent} from './pages/user/logout/logout.component';
 import { UploadComponent} from './pages/user/upload/upload.component';
 import {AuthGuard} from './services/auth.guard';
+import {HomeComponent} from './pages/home/home.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent
 
+  },
 
   {
     path: 'fake',

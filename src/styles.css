@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+
+body {
+  background: #e6e8f0;
+}
+
+.navbar {
+  /* ta zashto vobshte ima radius */
+  border-radius: 0;
+
+}
+
+footer {
+
+  position: fixed;
+  /* height: 100px;*/
+  bottom: 0;
+  width: 100%;
+}
