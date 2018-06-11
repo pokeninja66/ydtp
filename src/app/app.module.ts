@@ -19,6 +19,7 @@ import { UploadComponent } from './pages/user/upload/upload.component';
 
 import {FormsModule} from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
+import { HeaderComponent } from './covers/header/header.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HomeComponent } from './pages/home/home.component';
     LogoutComponent,
     RegisterComponent,
     UploadComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
