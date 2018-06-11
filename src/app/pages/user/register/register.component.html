@@ -1,0 +1,17 @@
+<form ngNativeValidate #registerForm="ngForm">
+  <h1>REGISTER SO THAT YOU CAN ADD POSTS</h1>
+
+  <br>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" [(ngModel)]='email' class="form-control" required>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" [(ngModel)]='password' class="form-control" minlength="6" required>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary  reg-btn" (click)='onRegister()' [disabled]='registerForm.invalid'>Register</button>
+  </div>
+</form>

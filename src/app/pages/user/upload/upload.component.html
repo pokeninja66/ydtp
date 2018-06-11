@@ -1,0 +1,64 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Upload a Post</h3>
+      </div>
+      <div class="panel-body">
+        <form (submit)="onSubmit()" #item="ngForm">
+
+          <!-- IMAGE UPLOAD-->
+
+          <div class="form-group">
+            <label for="file">File input</label>
+            <input type="file" name="file" id="file"  (change)="upload3uploadHarder($event)">
+          </div>
+
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100">
+              Uploading File...       {{ uploadProgress | async }} %
+            </div>
+          </div>
+
+          <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
+            File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
+          </div>
+
+          <!--TITLE-->
+
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input [(ngModel)]="uploadItem.title" id="title" type="text" class="form-control" name="title"
+                   placeholder="Title">
+          </div>
+
+          <!--DESCRIPTION-->
+
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea [(ngModel)]="uploadItem.description" rows="3" class="form-control" id="description"
+                      name="description" placeholder="Description"></textarea>
+          </div>
+
+          <!--CATEGORY-->
+
+          <div class="form-group">
+
+            <label for="category">Select a category:</label>
+            <select [ngModel]="defaultCategory" class="form-control" id="category" name="category">
+              <option *ngFor="let cat of Categories" [value]="cat.value" (change)="choseCategory(cat.id)">
+                {{cat.name}}
+              </option>
+            </select>
+            <span class="help-block">If there is no selected category it will be added to the default one (insert default here)</span>
+          </div>
+
+          {{uploadItem.category}} {{defaultCategory}}
+
+          <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

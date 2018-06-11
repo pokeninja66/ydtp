@@ -1,0 +1,44 @@
+<div class="row" *ngFor="let item of posts">
+
+  <!-- Post Content Column -->
+  <div class="col-lg-8">
+
+    <!-- Title -->
+    <h1 class="mt-4">{{ item.title }}</h1>
+
+    <!-- Author -->
+    <p class="lead">
+      by
+      <a href="#">{{ item.author }}</a>
+    </p>
+
+    <hr>
+
+    <!-- Date/Time -->
+    <p>Posted on {{ item.dateAdded }}</p>
+
+    <hr>
+
+    <!-- Preview Image -->
+    <img class="img-fluid rounded" src="{{ item.imageUrl }}" alt="">
+
+    <hr>
+
+    <!-- Post Content -->
+    <p class="lead">{{ item.description }}</p>
+
+    <!-- Sidebar Widgets Column -->
+    <div class="col-md-4">
+
+
+      <!-- Categories Widget -->
+      <div class="card my-4">
+        <h5 class="card-header">Categories</h5>
+        {{ item.category }}
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
