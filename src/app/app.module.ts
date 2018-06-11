@@ -20,6 +20,7 @@ import { UploadComponent } from './pages/user/upload/upload.component';
 import {FormsModule} from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './covers/header/header.component';
+import { FooterComponent } from './covers/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HeaderComponent } from './covers/header/header.component';
     RegisterComponent,
     UploadComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
