@@ -21,6 +21,7 @@ import {FormsModule} from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './covers/header/header.component';
 import { FooterComponent } from './covers/footer/footer.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FooterComponent } from './covers/footer/footer.component';
     UploadComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

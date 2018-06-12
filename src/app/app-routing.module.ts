@@ -8,6 +8,7 @@ import {LogoutComponent} from './pages/user/logout/logout.component';
 import { UploadComponent} from './pages/user/upload/upload.component';
 import {AuthGuard} from './services/auth.guard';
 import {HomeComponent} from './pages/home/home.component';
+import {NotFoundComponent} from './pages/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,10 @@ const routes: Routes = [
     path: 'upload',
     component: UploadComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
   }
 
 
