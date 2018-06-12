@@ -2,11 +2,10 @@ import {Component, OnInit} from '@angular/core';
 
 import {AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask} from 'angularfire2/storage';
 import {finalize, map} from 'rxjs/operators';
-import * as firebase from 'firebase';
-import {unwrapResolvedMetadata} from '@angular/compiler';
 import {Observable} from 'rxjs';
 import {Post} from '../../../services/ser/model/postItem';
 import {PostService} from '../../../services/ser/post.service';
+import {Router} from '@angular/router';
 
 
 // for the image data
@@ -51,7 +50,9 @@ export class UploadComponent implements OnInit {
     {id: 4, name: 'American capitalism'}
   ];
 
-  constructor(private afs: AngularFireStorage, private postService: PostService) {
+  Cat: string;
+
+  constructor(private afs: AngularFireStorage, private postService: PostService, private route: Router) {
 
   }
 
@@ -65,24 +66,6 @@ export class UploadComponent implements OnInit {
     return this.currenUser.toString();
   }
 
-  choseCategory(id) {
-
-    switch (id) {
-      case 1:
-        this.uploadItem.category = 'Random';
-        break;
-      case 2:
-        this.uploadItem.category = 'Animu tankus';
-        break;
-      case 3:
-        this.uploadItem.category = 'The comrades are coming';
-        break;
-      case 4:
-        this.uploadItem.category = 'American capitalism';
-    }
-
-
-  }
 
   // add the data to the Model
   onSubmit() {
@@ -106,11 +89,36 @@ export class UploadComponent implements OnInit {
       this.uploadItem.category = '';
       this.uploadItem.imageUrl = '';
 
+      // go to the post
+      this.route.navigate(['/fake']);
 
     }
 
   }
 
+  addToSelected(event) {
+
+    // well for some reason it doesnt work with a switch so im doing it like this
+
+    if (event == 1) {
+      this.uploadItem.category = 'Random';
+    }
+
+    if (event == 2) {
+      this.uploadItem.category = 'Animu tankus';
+    }
+
+    if (event == 3) {
+      this.uploadItem.category = 'The comrades are coming';
+    }
+
+    if (event == 4) {
+      this.uploadItem.category = 'American capitalism';
+    }
+
+    console.log(this.uploadItem.category);
+
+  }
 
   upload3uploadHarder(event) {
     const id = Math.random().toString(36).substring(2);
