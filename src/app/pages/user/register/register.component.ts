@@ -10,8 +10,8 @@ import {AuthService} from '../../../services/auth.service';
 })
 export class RegisterComponent implements OnInit {
 
-  private email: string;
-  private password: string;
+  public email: string;
+  public password: string;
 
   constructor(private authService: AuthService, private route: Router) { }
 
