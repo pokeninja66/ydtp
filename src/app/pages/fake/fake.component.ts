@@ -15,7 +15,9 @@ export class FakeComponent implements OnInit {
   constructor(private ps: PostService) {
     this.ps.getPosts().subscribe(posts => {
       this.posts = posts;
+      console.log(posts);
     });
+
   }
 
   ngOnInit() {

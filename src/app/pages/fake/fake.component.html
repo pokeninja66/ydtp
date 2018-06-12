@@ -1,44 +1,76 @@
+<div class="row">
+
+  <div class="lead blockquote">
+    <br>
+    <p class="mb-0 h4">Welcome to the post page! <br> Here you can view all the things you have posted!</p>
+
+    <span class="blockquote-footer">
+    if you cant see the posts click <a href="fake">Here</a> for them to reload!
+    </span>
+
+  </div>
+</div>
+
 <div class="row" *ngFor="let item of posts">
 
+
   <!-- Post Content Column -->
-  <div class="col-lg-8">
-
+  <div class="col separator">
     <!-- Title -->
-    <h1 class="mt-4">{{ item.title }}</h1>
-
+    <h1 class="h2">{{ item.title }}</h1>
     <!-- Author -->
     <p class="lead">
-      by
-      <a href="#">{{ item.author }}</a>
+      by <span class="text-info">{{item.author }}</span>
+      <br>
+      Category:
+      <small class="text-muted">{{ item.category }}</small>
     </p>
-
-    <hr>
-
     <!-- Date/Time -->
     <p>Posted on {{ item.dateAdded }}</p>
-
-    <hr>
-
     <!-- Preview Image -->
     <img class="img-fluid rounded" src="{{ item.imageUrl }}" alt="">
-
-    <hr>
-
     <!-- Post Content -->
-    <p class="lead">{{ item.description }}</p>
+    <div class="lead">
+      <!--span class="description">Description:</span--><br>
+      {{ item.description }}
+    </div>
 
-    <!-- Sidebar Widgets Column -->
-    <div class="col-md-4">
+  </div>
 
+</div>
 
-      <!-- Categories Widget -->
-      <div class="card my-4">
-        <h5 class="card-header">Categories</h5>
-        {{ item.category }}
-      </div>
+<!--
+<div class="row" *ngIf="havePosts != false ;then nave_post else no_post">
 
-
+  <ng-template #nave_post>
+    <!-- Post Content Column --
+<div *ngFor="let item of posts">
+  <div [item]="item"  class="col separator">
+    <!-- Title --
+    <h1 class="h2">{{ item.title }}</h1>
+    <!-- Author --
+    <p class="lead">
+      by <span class="text-info">{{item.author }}</span>
+      <br>
+      Category:
+      <small class="text-muted">{{ item.category }}</small>
+    </p>
+    <!-- Date/Time --
+    <p>Posted on {{ item.dateAdded }}</p>
+    <!-- Preview Image --
+    <img class="img-fluid rounded" src="{{ item.imageUrl }}" alt="">
+    <!-- Post Content --
+    <div class="lead">
+      <!--span class="description">Description:</span--<br>
+      {{ item.description }}
     </div>
 
   </div>
 </div>
+</ng-template>
+
+<ng-template #no_post>other content here...</ng-template>
+
+</div>
+
+-->
