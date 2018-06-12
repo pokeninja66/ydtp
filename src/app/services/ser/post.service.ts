@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 
-import {AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
+import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from 'angularfire2/firestore';
 import {Observable} from 'rxjs';
 import {Post} from '../../services/ser/model/postItem';
 
@@ -13,9 +13,10 @@ export class PostService {
 
   private postsCollection: AngularFirestoreCollection<Post>;
   posts: Observable<Post[]>;
+  postDoc: AngularFirestoreDocument<Post>;
 
   constructor(private afs: AngularFirestore) {
-    this.postsCollection = afs.collection<Post>('test',ref => ref.orderBy('dateAdded','desc'));
+    this.postsCollection = afs.collection<Post>('test', ref => ref.orderBy('dateAdded', 'desc'));
     //  this.posts = this.postsCollection.valueChanges();
 
     this.posts = this.postsCollection.snapshotChanges().pipe(map(changes => {
@@ -34,4 +35,15 @@ export class PostService {
   addPost(post: Post) {
     this.postsCollection.add(post);
   }
+
+  deletePost(post: Post) {
+    this.postDoc = this.afs.doc(`test/${post.id}`);
+    this.postDoc.delete();
+  }
+
+  updatePost(post: Post) {
+    this.postDoc = this.afs.doc(`test/${post.id}`);
+    this.postDoc.update(post);
+  }
+
 }

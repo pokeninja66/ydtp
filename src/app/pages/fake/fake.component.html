@@ -1,6 +1,6 @@
 <div class="row">
 
-  <div class="lead blockquote">
+  <div class="lead blockquote separator">
     <br>
     <p class="mb-0 h4">Welcome to the post page! <br> Here you can view all the things you have posted!</p>
 
@@ -16,9 +16,27 @@
 
 <div class="row" *ngFor="let item of posts">
 
-
   <!-- Post Content Column -->
   <div class="col separator">
+
+    <span class="alert alert-light" style="float:right" *ngIf="currentUser==item.author">
+      <ul class="list-group">
+
+        <a href="fake#update-{{item.id}}"
+           class="list-group-item list-group-item-action list-group-item-warning"
+           (click)="updatePost($event,item)"
+        >Update</a>
+
+
+  <a href="fake"
+     class="list-group-item list-group-item-action list-group-item-danger"
+     (click)="deletePost($event , item)">Delete</a>
+
+      </ul>
+
+    </span>
+
+
     <!-- Title -->
     <h1 class="h2">{{ item.title }}</h1>
     <!-- Author -->
@@ -36,6 +54,36 @@
     <div class="lead">
       <!--span class="description">Description:</span--><br>
       {{ item.description }}
+    </div>
+
+
+    <div id="update-{{item.id}}">
+
+      <div *ngIf="editPost && postToEdit.id == item.id" class="panel-body">
+
+        <br>
+
+        <form (submit)="UpdateThePost(item)" class="jumbotron">
+          <span class="text-info"> For now you can only update the title and description!</span>
+          <br>
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input [(ngModel)]="item.title" id="title" type="text" class="form-control" name="title"
+                   placeholder="Title">
+          </div>
+
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea [(ngModel)]="item.description" rows="3" class="form-control" id="description"
+                      name="description" placeholder="Description"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-warning">Update</button>
+
+        </form>
+
+      </div>
+
     </div>
 
   </div>
