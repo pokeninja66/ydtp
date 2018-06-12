@@ -58,6 +58,8 @@ export class AuthService {
 
       }
     });
+
+  //  this.route.navigate(['/fake']);
   }
 
   logout() {
@@ -68,5 +70,8 @@ export class AuthService {
       .catch(function (error) {
         alert('Logout failed! try again!');
       });
+
+    sessionStorage.clear();
+    this.route.navigate(['/fake']);
   }
 }
