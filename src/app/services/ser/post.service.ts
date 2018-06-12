@@ -15,7 +15,7 @@ export class PostService {
   posts: Observable<Post[]>;
 
   constructor(private afs: AngularFirestore) {
-    this.postsCollection = afs.collection<Post>('test',ref => ref.orderBy('dateAdded','asc'));
+    this.postsCollection = afs.collection<Post>('test',ref => ref.orderBy('dateAdded','desc'));
     //  this.posts = this.postsCollection.valueChanges();
 
     this.posts = this.postsCollection.snapshotChanges().pipe(map(changes => {
