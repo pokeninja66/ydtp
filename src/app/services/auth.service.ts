@@ -27,13 +27,13 @@ export class AuthService {
 
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
-        alert('User is signed in.');
+      //  alert('User is signed in.');
         // console.log(user);
 
 
-        window.location.assign('/fake');
+        //window.location.assign('/fake');
         // emi fuck it ne moga da opravq routinga
-        // this.routing.navigate(['/fake'],{relativeTo: route});
+        this.routing.navigate(['/fake']);
       } else {
         // alert('No user is signed in.');
 
@@ -56,7 +56,7 @@ export class AuthService {
   logout() {
     firebase.auth().signOut()
       .then(function () {
-        alert('Logout successful');
+       // alert('Logout successful');
       })
       .catch(function (error) {
         alert('Logout failed! try again!');
