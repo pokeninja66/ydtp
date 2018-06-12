@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Router, RouterModule, Routes} from '@angular/router';
+import {Router} from '@angular/router';
 import * as firebase from 'firebase';
 import {Observable} from 'rxjs';
 
@@ -9,7 +9,11 @@ import {Observable} from 'rxjs';
 })
 export class AuthService {
 
-  constructor(public routing: Router) {
+  constructor(private route: Router) {
+  }
+
+  nav(to){
+    this.route.navigate(['/' + to]);
   }
 
   register(email: string, password: string) {
@@ -30,10 +34,10 @@ export class AuthService {
       //  alert('User is signed in.');
         // console.log(user);
 
-
+       // this.nav('home');
         //window.location.assign('/fake');
         // emi fuck it ne moga da opravq routinga
-        this.routing.navigate(['/fake']);
+      //  this.route.navigate(['/fake']);
       } else {
         // alert('No user is signed in.');
 
@@ -41,7 +45,10 @@ export class AuthService {
           .then(
             response => {
               sessionStorage.setItem('currentUser', response.user['email']);
-              window.location.assign('/fake');
+
+             // this.nav('upload');
+             // this.route.navigate(['/upload']);
+             // window.location.assign('/fake');
               //  this.routing.navigate(['/fake']);
             }
           )
