@@ -5,10 +5,11 @@ import {FakeComponent} from './pages/fake/fake.component';
 import {RegisterComponent} from './pages/user/register/register.component';
 import {LoginComponent} from './pages/user/login/login.component';
 import {LogoutComponent} from './pages/user/logout/logout.component';
-import { UploadComponent} from './pages/user/upload/upload.component';
+import {UploadComponent} from './pages/user/upload/upload.component';
 import {AuthGuard} from './services/auth.guard';
 import {HomeComponent} from './pages/home/home.component';
 import {NotFoundComponent} from './pages/not-found/not-found.component';
+import {AboutComponent} from './pages/about/about.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,11 @@ const routes: Routes = [
     component: HomeComponent
 
   },
+  {
+    path: 'about',
+    component: AboutComponent,
 
+  },
   {
     path: 'fake',
     component: FakeComponent,
