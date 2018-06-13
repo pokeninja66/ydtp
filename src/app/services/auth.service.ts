@@ -29,49 +29,54 @@ export class AuthService {
     // console.log('email:' + email);
     // console.log('password:' + password);
 
+    /*
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
-      //  alert('User is signed in.');
+        //  alert('User is signed in.');
         // console.log(user);
 
-       // this.nav('home');
+        // this.nav('home');
         //window.location.assign('/fake');
         // emi fuck it ne moga da opravq routinga
-      //  this.route.navigate(['/fake']);
+        //  this.route.navigate(['/fake']);
       } else {
         // alert('No user is signed in.');
 
-        firebase.auth().signInWithEmailAndPassword(email, password)
-          .then(
-            response => {
-              sessionStorage.setItem('currentUser', response.user['email']);
 
-             // this.nav('upload');
-             // this.route.navigate(['/upload']);
-             // window.location.assign('/fake');
-              //  this.routing.navigate(['/fake']);
-            }
-          )
-          .catch(
-            error => console.log('errors:' + error)
-          );
 
       }
     });
+    */
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then(
+        response => {
+          sessionStorage.setItem('currentUser', response.user['email']);
 
-  //  this.route.navigate(['/fake']);
+          // this.nav('upload');
+          // this.route.navigate(['/upload']);
+          // window.location.assign('/fake');
+          window.location.href = window.location.origin;
+          // this.route.navigate(['/upload']);
+        }
+      )
+      .catch(
+        error => console.log('errors:' + error)
+      );
+
+   // window.location.href = window.location.origin;
+    //  this.route.navigate(['/fake']);
   }
 
   logout() {
     firebase.auth().signOut()
       .then(function () {
-       // alert('Logout successful');
+        // alert('Logout successful');
       })
       .catch(function (error) {
         alert('Logout failed! try again!');
       });
 
     sessionStorage.clear();
-    this.route.navigate(['/fake']);
+   // this.route.navigate(['/fake']);
   }
 }
